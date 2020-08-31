@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# rubocop: disable Layout/LineLength
+
 require_relative '../lib/mb_scaner.rb'
 
 scaner = Scaner.new
@@ -18,3 +20,5 @@ Dir.glob('../docs/*').each do |filename|
     end
   end
 end
+
+# rubocop: enable Layout/LineLength
