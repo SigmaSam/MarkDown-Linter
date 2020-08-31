@@ -1,5 +1,4 @@
-# rubocop:disable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
-# rubocop:disable Layout/LineLength Style/HashSyntax
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/PerceivedComplexity, Metrics/MethodLength
 require 'colorize'
 class Scaner
   def scan_line(file)
@@ -29,5 +28,4 @@ class Scaner
   end
 end
 
-# rubocop:enable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
-# rubocop:enable  Layout/LineLength Style/HashSyntax
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/PerceivedComplexity, Metrics/MethodLength
