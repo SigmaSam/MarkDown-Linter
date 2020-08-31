@@ -28,5 +28,3 @@ class Scaner
   end
 end
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/PerceivedComplexity, Metrics/MethodLength
-
-
