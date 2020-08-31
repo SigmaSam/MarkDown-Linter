@@ -4,7 +4,7 @@ require_relative '../lib/mb_scaner.rb'
 
 scaner = Scaner.new
 
-puts 'This is a linter designed to find inconsistencies in ' + 'Markdown'.colorize(background: :blue) + " documents.\n"
+puts "\nThis is a linter designed to find inconsistencies in " + ' Markdown '.colorize(background: :blue) + " documents.\n"
 puts 'Place any .MD documents you want to test in the docs directory and press enter to continue.'
 gets
 
@@ -13,6 +13,8 @@ Dir.glob('../docs/*').each do |filename|
 
   puts 'Currently testing ' + "#{filename}\n".colorize(color: :red, background: :green)
   File.open(filename, 'r') do |file|
-    puts "Congratulations your code is clean\n".colorize(background: :green) if scaner.scan_line(file) == false
+    if scaner.scan_line(file) == false
+      puts " Congratulations your code is clean \n".colorize(color: :black, background: :green)
+    end
   end
 end
