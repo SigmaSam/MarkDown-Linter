@@ -3,10 +3,8 @@
 This is a linter build with Ruby to find errors in documents intened to be wrote with Markdown format.
 
 ## Screenshot showcasing the gameplay.
-<img src=""/>
-<img src=""/>
-<img src=""/>
-<img src=""/>
+<img src="../media/console.png"/>
+<img src="../media/test cases.png"/>
 
 ## Built with:
 - Ruby
@@ -14,6 +12,12 @@ This is a linter build with Ruby to find errors in documents intened to be wrote
 ## How to use:
 - Clone this repository by opening your terminal and run:
   git [clone](https://github.com/SigmaSam/MarkDown-Linter.)
+
+- Place the documents you want to test in the **docs** directory of the repository.
+
+- run the `./main` command from the terminal in the repository.
+
+- The console will show you the errors you had and will point you to the index of the line where they were found.
 
 ## Steps to validate code using out Rspec file
 - Once you have clone the repository make sure that you have Rspec install by running rspec --version
