@@ -8,7 +8,7 @@ class Scaner
   end
 
   def sym_check(test, ind)
-    find_pair(test, ind) if test =~ /[\*\`\[\(]/
+    find_pair(test, ind) if test =~ /[\*\`\[\]\(\)]/
   end
 
   def find_pair(pair, ubi)
