@@ -3,8 +3,8 @@
 This is a linter build with Ruby to find errors in documents intened to be wrote with Markdown format.
 
 ## Screenshot showcasing the gameplay.
-<img src="../media/console.png"/>
-<img src="../media/test cases.png"/>
+<img src="./media/console.png"/>
+<img src="./media/test cases.png"/>
 
 ## Built with:
 - Ruby
