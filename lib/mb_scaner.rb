@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity)
+# rubocop:disable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
 # rubocop:disable Layout/LineLength Style/HashSyntax
 require 'colorize'
 class Scaner
@@ -29,5 +29,5 @@ class Scaner
   end
 end
 
-# rubocop:enable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity)
+# rubocop:enable Metrics/AbcSize Metrics/CyclomaticComplexity Metrics/PerceivedComplexity
 # rubocop:enable  Layout/LineLength Style/HashSyntax
