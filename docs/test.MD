@@ -30,8 +30,8 @@
 
 - Linguini
 
-` puts 'Hello World! `
+ ` puts 'Hello World!  `
 
 [link](https://www.markdownguide.org/cheat-sheet/)
 
-!Cat sleeping](https://i.ytimg.com/vi/TvsNS48Pw5Q/maxresdefault.jpg)
+![Cat sleep](inghttps://i.ytimg.com/vi/TvsNS48Pw5Q/maxresdefault.jpg)
