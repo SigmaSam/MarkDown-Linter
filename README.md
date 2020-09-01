@@ -10,7 +10,7 @@ It will iterate for all the lines in a document passed and check the proper posi
 
 `!Cat sleep]inghttps://i.ytimg.com/vi/TvsNS48Pw5Q/maxresdefault.jpg) => # Incorrect Syntaxys`
 
-## Screenshot showcasing the gameplay.
+## Screenshots.
 <img src="./media/console.png"/>
 <img src="./media/test cases.png"/>
 
