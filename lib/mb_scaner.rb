@@ -24,37 +24,39 @@ class Scaner
     case pair
     when /\*/
       if pair.count('*').odd?
-        puts "You need to close your Asterisks at line #{ubi + 1}".colorize(background: :red)
+        puts "You need to close your Asterisks at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
     when /\`/
       if pair.count('`').odd?
-        puts "You need to close your Grave Accent line #{ubi + 1}".colorize(background: :red)
-        c = true
+        unless pair.count('`') == 3
+          puts "You need to close your Grave Accent line #{ubi + 1} \n".colorize(background: :red) 
+          c = true
+        end
       end
     when /[\[\]]/ && /[\(\)]/
-      if pair.count('[').even? && !pair.count('[').zero?
-        puts "You have an irregular number of [ at line #{ubi + 1}".colorize(background: :red)
+      if (pair.count('[').even? && !pair.count('[').zero?) && pair.count(']').odd?
+        puts "You have an irregular number of [ at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
-      if pair.count(']').even? && !pair.count(']').zero?
-        puts "You have an irregular number of ] at line #{ubi + 1}".colorize(background: :red)
+      if (pair.count(']').even? && !pair.count(']').zero?) && pair.count('[').odd?
+        puts "You have an irregular number of ] at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
       if (pair.count('[') + pair.count(']')).odd?
-        puts "You need to close your Square Bracket at line #{ubi + 1}".colorize(background: :red)
+        puts "You need to close your Square Bracket at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
-      if pair.count('(').even? && !pair.count('(').zero?
-        puts "You have an irregular number of () at line #{ubi + 1}".colorize(background: :red)
+      if (pair.count('(').even? && !pair.count('(').zero?) && pair.count(')').odd?
+        puts "You have an irregular number of ( at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
-      if pair.count(')').even? && !pair.count(')').zero?
-        puts "You have an irregular number of ) at line #{ubi + 1}".colorize(background: :red)
+      if (pair.count(')').even? && !pair.count(')').zero?) && pair.count('(').odd?
+        puts "You have an irregular number of ) at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
       if (pair.count('(') + pair.count(')')).odd?
-        puts "You need to close your Parenthesis at line #{ubi + 1}".colorize(background: :red)
+        puts "You need to close your Parenthesis at line #{ubi + 1} \n".colorize(background: :red)
         c = true
       end
     end
