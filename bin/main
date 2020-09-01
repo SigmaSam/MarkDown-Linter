@@ -10,15 +10,17 @@ puts "\nThis is a linter designed to find inconsistencies in " + ' Markdown '.co
 puts 'Place any .MD documents you want to test in the docs directory and press enter to continue.'
 gets
 
+puts "There are no documents in the docs Directory \n.".colorize(color: :black, background: :white)  if Dir.glob('../docs/*').empty?
+
 Dir.glob('../docs/*').each do |filename|
+
+   
   next if File.directory?(filename)
 
   puts 'Currently testing ' + "#{filename}\n".colorize(color: :red, background: :green)
   File.open(filename, 'r') do |file|
     if scaner.scan_line?(file) == true
       puts " Congratulations your code is clean \n".colorize(color: :black, background: :green)
-    elsif scaner.scan_line(file).nil?
-      puts "There are no Documents to parse \n.".colorize(color: :black, background: :white) 
     end
   end
 end
