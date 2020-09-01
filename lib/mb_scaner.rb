@@ -30,7 +30,7 @@ class Scaner
     when /\`/
       if pair.count('`').odd?
         unless pair.count('`') == 3
-          puts "You need to close your Grave Accent line #{ubi + 1} \n".colorize(background: :red) 
+          puts "You need to close your Grave Accent line #{ubi + 1} \n".colorize(background: :red)
           c = true
         end
       end
