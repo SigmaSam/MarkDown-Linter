@@ -15,7 +15,7 @@ Dir.glob('../docs/*').each do |filename|
 
   puts 'Currently testing ' + "#{filename}\n".colorize(color: :red, background: :green)
   File.open(filename, 'r') do |file|
-    if scaner.scan_line(file) == false
+    if scaner.scan_line?(file) == true
       puts " Congratulations your code is clean \n".colorize(color: :black, background: :green)
     end
   end

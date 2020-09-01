@@ -18,12 +18,15 @@ It will iterate for all the lines in a document passed and check the proper posi
 - Ruby
 
 ## How to use:
+
 - Clone this repository by opening your terminal and run:
   git [clone](https://github.com/SigmaSam/MarkDown-Linter)
 
 - Place the documents you want to test in the **docs** directory of the repository.
 
-- run the `./main` command from the terminal in the bin directory.
+- run the `./main` command from the terminal in the **bin** directory.
+
+- You will see a small introduction screen telling you where to place your .MD Files, after that press Enter.
 
 - The console will show you the errors you had and will point you to the index of the line where they were found.
 

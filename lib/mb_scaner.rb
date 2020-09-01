@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
 require 'colorize'
 class Scaner
-  def scan_line(file)
+  def scan_line?(file)
     c = false
     index_loc = []
     file.readlines.each_with_index do |line, loc|
@@ -10,16 +10,16 @@ class Scaner
         c == true ? index_loc << loc : nil
       end
     end
-    index_loc.size.zero? ? false : true
+    index_loc.size.zero?
   end
 
   def sym_check(test, ind)
     c = false
-    c = find_pair(test, ind) if test =~ /[\*\`\[\]\(\)]/
+    c = find_pair?(test, ind) if test =~ /[\*\`\[\]\(\)]/
     c
   end
 
-  def find_pair(pair, ubi)
+  def find_pair?(pair, ubi)
     c = false
     case pair
     when /\*/
