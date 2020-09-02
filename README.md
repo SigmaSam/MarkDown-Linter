@@ -22,6 +22,8 @@ It will iterate for all the lines in a document passed and check the proper posi
 - Clone this repository by opening your terminal and run:
   git [clone](https://github.com/SigmaSam/MarkDown-Linter)
 
+- Run bundle install 
+
 - Place the documents you want to test in the **docs** directory of the repository.
 
 - run the `./main` command from the terminal in the **bin** directory.
