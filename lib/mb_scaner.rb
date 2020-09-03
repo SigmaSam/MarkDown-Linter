@@ -1,5 +1,4 @@
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
-require 'colorize'
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength, Metrics/BlockNesting, Style/Documentation
 
 class Scaner
   attr_accessor :ast, :gra, :squ, :squ_open, :squ_clo, :par, :par_open, :par_clo, :big, :small, :mid, :index_loc, :posi
@@ -67,6 +66,7 @@ class Scaner
         end
       end
     end
+    @index_loc
   end
 end
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength, Metrics/BlockNesting, Style/Documentation

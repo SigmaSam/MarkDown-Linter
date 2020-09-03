@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# rubocop: disable Metrics/BlockLength
+# rubocop: disable Metrics/BlockLength, Layout/LineLength
 
 require_relative '../lib/mb_scaner.rb'
 
@@ -17,42 +17,42 @@ Dir.glob('../docs/*').each do |filename|
   puts 'Currently testing ' + "#{filename}\n".colorize(color: :red, background: :green)
   File.open(filename, 'r') do |file|
     file.readlines.each_with_index do |line, loc|
-    scaner.find_pair?(line, loc)
-    if scaner.ast == true
-      puts "You are missing an Asterisk at line.#{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.ast = false
+      scaner.find_pair?(line, loc)
+      if scaner.ast == true
+        puts "You are missing an Asterisk at line.#{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.ast = false
+      end
+      if scaner.gra == true
+        puts "You need to close your Grave Accent line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.gra = false
+      end
+      if scaner.squ_open == true
+        puts "You have an irregular number of [ at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.squ_open = false
+      end
+      if scaner.squ_clo == true
+        puts "You have an irregular number of ] at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.squ_clo = false
+      end
+      if scaner.squ == true
+        puts "You need to close your Square Bracket at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.squ = false
+      end
+      if scaner.par_open == true
+        puts "You have an irregular number of ( at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.par_open = false
+      end
+      if scaner.par_clo == true
+        puts "You have an irregular number of ) at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.par_clo = false
+      end
+      if scaner.par == true
+        puts "You need to close your Parenthesis at line #{scaner.posi + 1} \n".colorize(background: :red)
+        scaner.par = false
+      end
     end
-    if scaner.gra == true
-      puts "You need to close your Grave Accent line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.gra = false
-    end
-    if scaner.squ_open == true
-      puts "You have an irregular number of [ at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.squ_open = false
-    end
-    if scaner.squ_clo == true
-      puts "You have an irregular number of ] at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.squ_clo = false
-    end
-    if scaner.squ == true
-      puts "You need to close your Square Bracket at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.squ = false
-    end
-    if scaner.par_open == true
-      puts "You have an irregular number of ( at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.par_open = false
-    end
-    if scaner.par_clo == true
-      puts "You have an irregular number of ) at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.par_clo = false
-    end
-    if scaner.par == true
-      puts "You need to close your Parenthesis at line #{scaner.posi + 1} \n".colorize(background: :red)
-      scaner.par = false
-    end
-  end
     puts "Congratulations your code is clean \n".colorize(color: :black, background: :green) if scaner.index_loc.empty?
     scaner.index_loc = []
   end
 end
-# rubocop: enable Metrics/BlockLength
+# rubocop: enable Metrics/BlockLength, Layout/LineLength
