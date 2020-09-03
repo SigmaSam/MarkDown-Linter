@@ -1,66 +1,72 @@
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
 require 'colorize'
-class Scaner
-  def scan_line?(file)
-    c = false
-    index_loc = []
-    file.readlines.each_with_index do |line, loc|
-      if line.split(' ') != []
-        c = sym_check(line, loc)
-        c == true ? index_loc << loc : nil
-      end
-    end
-    index_loc.size.zero?
-  end
 
-  def sym_check(test, ind)
-    c = false
-    c = find_pair?(test, ind) if test =~ /[\*\`\[\]\(\)]/
-    c
+class Scaner
+  attr_accessor :ast, :gra, :squ, :squ_open, :squ_clo, :par, :par_open, :par_clo, :big, :small, :mid, :index_loc, :posi
+
+  def initialize
+    @ast = false
+    @gra = false
+    @squ = false
+    @squ_open = false
+    @squ_clo = false
+    @par = false
+    @par_open = false
+    @par_clo = false
+    @index_loc = []
+    @posi = nil
   end
 
   def find_pair?(pair, ubi)
-    c = false
-    case pair
-    when /\*/
-      if pair.count('*').odd?
-        puts "You need to close your Asterisks at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-    when /\`/
-      if pair.count('`').odd?
-        unless pair.count('`') == 3
-          puts "You need to close your Grave Accent line #{ubi + 1} \n".colorize(background: :red)
-          c = true
+    if pair =~ /[\(\)\[\]\`\*\<\>]/ && !pair.split(' ').empty?
+      case pair
+      when /\*/
+        if pair.count('*').odd?
+          @ast = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+      when /\`/
+        if pair.count('`').odd?
+          unless pair.count('`') == 3
+            @gra = true
+            @posi = ubi
+            @index_loc << ubi
+          end
+        end
+      when /[\[\]]/ && /[\(\)]/
+        if (pair.count('[').even? && !pair.count('[').zero?) && pair.count(']').odd?
+          @squ_open = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+        if (pair.count(']').even? && !pair.count(']').zero?) && pair.count('[').odd?
+          @squ_clo = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+        if (pair.count('[') + pair.count(']')).odd?
+          @squ = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+        if (pair.count('(').even? && !pair.count('(').zero?) && pair.count(')').odd?
+          @par_open = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+        if (pair.count(')').even? && !pair.count(')').zero?) && pair.count('(').odd?
+          @par_clo = true
+          @posi = ubi
+          @index_loc << ubi
+        end
+        if (pair.count('(') + pair.count(')')).odd?
+          @par = true
+          @posi = ubi
+          @index_loc << ubi
         end
       end
-    when /[\[\]]/ && /[\(\)]/
-      if (pair.count('[').even? && !pair.count('[').zero?) && pair.count(']').odd?
-        puts "You have an irregular number of [ at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-      if (pair.count(']').even? && !pair.count(']').zero?) && pair.count('[').odd?
-        puts "You have an irregular number of ] at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-      if (pair.count('[') + pair.count(']')).odd?
-        puts "You need to close your Square Bracket at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-      if (pair.count('(').even? && !pair.count('(').zero?) && pair.count(')').odd?
-        puts "You have an irregular number of ( at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-      if (pair.count(')').even? && !pair.count(')').zero?) && pair.count('(').odd?
-        puts "You have an irregular number of ) at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
-      if (pair.count('(') + pair.count(')')).odd?
-        puts "You need to close your Parenthesis at line #{ubi + 1} \n".colorize(background: :red)
-        c = true
-      end
     end
-    c
   end
 end
 # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength

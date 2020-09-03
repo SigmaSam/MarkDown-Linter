@@ -13,6 +13,8 @@
 **This text is BOLD!*
 
 ---
+< >
+><>
 
 and this one likes pasta*
 
@@ -32,6 +34,8 @@ and this one likes pasta*
 
   puts 'Hello World!  `
 
+  ` not here
+
 link](https://www.markdownguide.org/cheat-sheet/)
 
-!Cat sleep]inghttps://i.ytimg.com/vi/TvsNS48Pw5Q/maxresdefault.jpg)
+![Cat sleepinghttps://i.ytimg.com/vi/TvsNS48Pw5Q/maxresdefault.jpg)
