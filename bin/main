@@ -6,13 +6,13 @@ require_relative '../lib/mb_scaner.rb'
 require 'colorize'
 
 scaner = Scaner.new
-puts "\nThis is a linter designed to find inconsistencies in " + ' Markdown '.colorize(background: :blue) + " documents.\n"
+puts "\nThis is a linter designed to find inconsistencies in " + ' Markdown '.colorize(background: :blue) + " documents.\n\n"
 puts 'Place any .MD documents you want to test in the docs directory and press enter to continue.'
 gets
 
-puts "There are no documents in the docs Directory.\n".colorize(color: :black, background: :white) if Dir.glob('./docs/*.MD').empty?
+puts "There are no documents in the docs Directory.\n".colorize(color: :black, background: :white) if Dir.glob('../docs/*.MD').empty?
 
-Dir.glob('./docs/*.MD').each do |filename|
+Dir.glob('../docs/*.MD').each do |filename|
   next if File.directory?(filename)
 
   puts 'Currently testing ' + "#{filename}\n".colorize(color: :red, background: :green)
