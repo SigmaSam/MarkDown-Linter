@@ -9,7 +9,7 @@ puts "\nThis is a linter designed to find inconsistencies in " + ' Markdown '.co
 puts 'Place any .MD documents you want to test in the docs directory and press enter to continue.'
 gets
 
-puts "There are no documents in the docs Directory.\n".colorize(color: :black, background: :white) if Dir.glob('../docs/*').empty?
+puts "There are no documents in the docs Directory.\n".colorize(color: :black, background: :white) if Dir.glob('./docs/*').empty?
 
 Dir.glob('./docs/*').each do |filename|
   next if File.directory?(filename)
