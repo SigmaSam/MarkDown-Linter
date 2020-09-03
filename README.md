@@ -13,6 +13,7 @@ It will iterate for all the lines in a document passed and check the proper posi
 ## Screenshots.
 <img src="./media/console.png"/>
 <img src="./media/test cases.png"/>
+> Good Syntax vs Bad Syntax
 
 ## Built with:
 - Ruby
